@@ -10,6 +10,6 @@ const navbarNav = document.querySelector('.navbar-nav');
 
 // Return to home page
 function returnToHomePage() {
-      window.location.href = "index.html";
+      window.location.href = "../index.html";
       return false;
   }

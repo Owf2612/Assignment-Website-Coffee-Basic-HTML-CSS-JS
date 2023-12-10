@@ -25,7 +25,7 @@ async function loginUser() {
 
         showNotification('Login successful!');
         setTimeout(() => {
-            window.location.href = 'index.html';
+            window.location.href = '/pages-html/index.html';
         }, 2000);
     } catch (error) {
         console.error('Error:', error);
@@ -49,6 +49,51 @@ document.getElementById('loginForm').addEventListener('submit', (event) => {
 
 function showNotification(message) {
     const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 5000);
+}
+
+
+// Registration
+async function registerUser() {
+    const name = document.getElementById('text-register').value;
+    const email = document.getElementById('email-register').value;
+    const password = document.getElementById('password-register').value;
+
+    try {
+        // Replace with actual registration logic
+        const registrationSuccessful = await registerNewUser(name, email, password);
+
+        if (!registrationSuccessful) {
+            throw new Error('Registration failed');
+        }
+
+        showNotificationRegister('Registration successful!');
+        setTimeout(() => {
+            window.location.href = '/pages-html/index.html';
+        }, 2000);
+    } catch (error) {
+        console.error('Error:', error);
+        showNotificationRegister('Please enter all fields.');
+    }
+}
+
+// Simulate a registration process
+async function registerNewUser(name, email, password) {
+    // For demonstration purposes, allowing blank values
+    return true;
+}
+
+document.getElementById('registerForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    registerUser();
+});
+
+function showNotificationRegister(message) {
+    const notification = document.getElementById('notification-register');
     notification.textContent = message;
     notification.style.display = 'block';
     setTimeout(() => {

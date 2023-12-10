@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BTEC FPT</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
     <script src="https://kit.fontawesome.com/9cde2919db.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="#">
+            <form id="registerForm">
                 <h1>Create Account</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -19,10 +19,11 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
+                <input type="text" id="text-register" placeholder="Name" />
+                <input type="email" id="email-register" placeholder="Email" />
+                <input type="password" id="password-register" placeholder="Password" />
+                <button type="submit">Sign Up</button>
+                <div id="notification-register"></div>
             </form>
         </div>
         <div class="form-container sign-in-container">
@@ -56,6 +57,6 @@
             </div>
         </div>
     </div>
-    <script src="js/login.js"></script>
+    <script src="assets/js/auth.js"></script>
 </body>
 </html>

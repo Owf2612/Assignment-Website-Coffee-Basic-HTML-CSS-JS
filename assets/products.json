@@ -3,49 +3,49 @@
         "id": 1,
         "name":" CAFE DUA",
         "price": 200,
-        "image": "images/products/1.png"
+        "image": "../assets/images/products/1.png"
     },
     {
         "id": 2,
         "name":" MOCHA",
         "price": 250,
-        "image": "images/products/2.png"
+        "image": "../assets/images/products/2.png"
     },
     {
         "id": 3,
         "name":" SAPA",
         "price": 290,
-        "image": "images/products/3.png"
+        "image": "../assets/images/products/3.png"
     },
     {
         "id": 4,
         "name":" SOLAR LATTE",
         "price": 200,
-        "image": "images/products/4.png"
+        "image": "../assets/images/products/4.png"
     },
     {
         "id": 5,
         "name":" SOLAR",
         "price": 300,
-        "image": "images/products/5.png"
+        "image": "../assets/images/products/5.png"
     },
     {
         "id": 6,
         "name":" BAC SIU",
         "price": 200,
-        "image": "images/products/6.png"
+        "image": "../assets/images/products/6.png"
     },
     {
         "id": 7,
         "name":" CAFE NAU",
         "price": 200,
-        "image": "images/products/7.png"
+        "image": "../assets/images/products/7.png"
     },
     {
         "id": 8,
         "name":" CAPUCCINO",
         "price": 200,
-        "image": "images/products/8.png"
+        "image": "../assets/images/products/8.png"
     }
 
 ]
