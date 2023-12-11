@@ -46,6 +46,53 @@
         "name":" CAPUCCINO",
         "price": 200,
         "image": "../assets/images/products/8.png"
+    },
+    {
+        "id": 9,
+        "name":" LITTLE SAIGON",
+        "price": 124,
+        "image": "../assets/images/products/9.png"
+    },
+    {
+        "id": 10,
+        "name":" VAN VAN",
+        "price": 345,
+        "image": "../assets/images/products/10.png"
+    },
+    {
+        "id": 11,
+        "name":" KATINA",
+        "price": 234,
+        "image": "../assets/images/products/11.png"
+    },
+    {
+        "id": 12,
+        "name":" ESPRESSO",
+        "price": 135,
+        "image": "../assets/images/products/12.png"
+    },
+    {
+        "id": 13,
+        "name":" AMERICANO",
+        "price": 127,
+        "image": "../assets/images/products/13.png"
+    },
+    {
+        "id": 14,
+        "name":" CAFE DEN",
+        "price": 235,
+        "image": "../assets/images/products/14.png"
+    },
+    {
+        "id": 15,
+        "name":" COLD BREW",
+        "price": 199,
+        "image": "../assets/images/products/15.png"
+    },
+    {
+        "id": 16,
+        "name":" COLDE BREW LATTE",
+        "price": 341,
+        "image": "../assets/images/products/16.png"
     }
-
 ]

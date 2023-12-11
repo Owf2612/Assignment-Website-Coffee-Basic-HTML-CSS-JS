@@ -57,6 +57,12 @@ function showNotification(message) {
 }
 
 
+// Function to validate the password
+function validatePassword(password) {
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{8,}$/;
+    return passwordRegex.test(password);
+}
+
 // Registration
 async function registerUser() {
     const name = document.getElementById('text-register').value;
@@ -64,6 +70,26 @@ async function registerUser() {
     const password = document.getElementById('password-register').value;
 
     try {
+        // Check if the name field is blank
+        if (!name.trim()) {
+            throw new Error('Name cannot be blank.');
+        }
+
+        // Check if the email field is blank
+        if (!email.trim()) {
+            throw new Error('Email cannot be blank.');
+        }
+
+        // Check if the password field is blank
+        if (!password.trim()) {
+            throw new Error('Password cannot be blank.');
+        }
+
+        // Validate the password
+        if (!validatePassword(password)) {
+            throw new Error('Password must be more than 8 characters, start with a capital letter, and contain one special character.');
+        }
+
         // Replace with actual registration logic
         const registrationSuccessful = await registerNewUser(name, email, password);
 
@@ -77,7 +103,7 @@ async function registerUser() {
         }, 2000);
     } catch (error) {
         console.error('Error:', error);
-        showNotificationRegister('Please enter all fields.');
+        showNotificationRegister(error.message || 'Registration failed.');
     }
 }
 

@@ -13,3 +13,13 @@ function returnToHomePage() {
       window.location.href = "../index.html";
       return false;
   }
+
+// Sending feedback will display a notification of successful submission
+function showSuccessMessage() {
+    alert("Your feedback has been submitted successfully.");
+   }
+   
+    document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    showSuccessMessage();
+   });

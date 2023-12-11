@@ -149,10 +149,10 @@ body{
 /*products menu */
 .bg {
     background-color: #2B2B2B;
-    height: 85vh;
+    height: 145%;
     width: 60vw;
-    position: fixed;
-    top: 20.5%;
+    position: absolute;
+    top: 34.5%;
     left: 50%; 
     transform: translate(-50%, -20%);
     border-bottom-left-radius: 20px;

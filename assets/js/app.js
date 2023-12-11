@@ -43,21 +43,31 @@ closeCart.addEventListener('click', () => {
     })
 const addToCart = (product_id) => {
     let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
-    if(cart.length <= 0){
-        cart = [{
-            product_id: product_id,
-            quantity: 1
-        }];
-    }else if(positionThisProductInCart < 0){
-        cart.push({
-            product_id: product_id,
-            quantity: 1
-        });
-    }else{
-        cart[positionThisProductInCart].quantity = cart[positionThisProductInCart].quantity + 1;
+    let positionProduct = products.findIndex((value) => value.id == product_id);
+
+    if (positionProduct >= 0) {
+        let product = products[positionProduct];
+
+        // Check if the quantity in the cart plus the quantity to be added is greater than 10
+        if (positionThisProductInCart >= 0 && cart[positionThisProductInCart].quantity + 1 > 10) {
+            alert(`Sorry, ${product.name} is not in stock. You cannot order more than 10 of this product.`);
+        } else if (cart.length <= 0) {
+            cart = [{
+                product_id: product_id,
+                quantity: 1
+            }];
+        } else if (positionThisProductInCart < 0) {
+            cart.push({
+                product_id: product_id,
+                quantity: 1
+            });
+        } else {
+            cart[positionThisProductInCart].quantity = cart[positionThisProductInCart].quantity + 1;
+        }
+
+        addCartToHTML();
+        addCartToMemory();
     }
-    addCartToHTML();
-    addCartToMemory();
 }
 const addCartToMemory = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -107,23 +117,33 @@ listCartHTML.addEventListener('click', (event) => {
 })
 const changeQuantityCart = (product_id, type) => {
     let positionItemInCart = cart.findIndex((value) => value.product_id == product_id);
-    if(positionItemInCart >= 0){
+    
+    if (positionItemInCart >= 0) {
         let info = cart[positionItemInCart];
+        let positionProduct = products.findIndex((value) => value.id == product_id);
+        let productName = positionProduct >= 0 ? products[positionProduct].name : 'Unknown Product';
+
         switch (type) {
             case 'plus':
-                cart[positionItemInCart].quantity = cart[positionItemInCart].quantity + 1;
+                // Check if adding one more exceeds the limit of 10
+                if (info.quantity + 1 > 10) {
+                    alert(`Sorry, ${productName} is not in stock. You cannot order more than 10 of this product.`);
+                } else {
+                    cart[positionItemInCart].quantity = cart[positionItemInCart].quantity + 1;
+                }
                 break;
         
             default:
                 let changeQuantity = cart[positionItemInCart].quantity - 1;
                 if (changeQuantity > 0) {
                     cart[positionItemInCart].quantity = changeQuantity;
-                }else{
+                } else {
                     cart.splice(positionItemInCart, 1);
                 }
                 break;
         }
     }
+    
     addCartToHTML();
     addCartToMemory();
 }
@@ -145,9 +165,22 @@ const initApp = () => {
 }
 initApp();
 
+//show notification Order Successful
 document.addEventListener('DOMContentLoaded', function() {
     const checkOutButton = document.querySelector('.checkOut');
     checkOutButton.addEventListener('click', function() {
+        // Show notification
         alert('Order Successful! Your order has been placed successfully!');
+        
+        // Clear the cart and update HTML and memory
+        clearCart();
     });
 });
+
+// Clear the cart
+const clearCart = () => {
+    cart = []; // Clear the cart array
+    addCartToHTML(); // Update the cart in the HTML
+    addCartToMemory(); // Update the cart in the local storage
+};
+
