@@ -144,3 +144,10 @@ const initApp = () => {
     })
 }
 initApp();
+
+document.addEventListener('DOMContentLoaded', function() {
+    const checkOutButton = document.querySelector('.checkOut');
+    checkOutButton.addEventListener('click', function() {
+        alert('Order Successful! Your order has been placed successfully!');
+    });
+});
